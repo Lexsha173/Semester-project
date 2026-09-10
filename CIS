@@ -1,0 +1,186 @@
+Project Smart Parking Platform
+Version: 1.0
+Date: September 8, 2026
+Organization: $oftware Corp.
+
+--
+
+Table of Contents
+1. Introduction
+  - 1.1 Purpose
+  - 1.2 Scope
+2. Overall Description
+  - 2.1 Users
+  - 2.2 System Environment
+  - 2.3 Constraints
+  - 2.4 Assumptions
+3. Functional Requirements
+4. Non-functional Requirements
+5. User stories (cases)
+
+--
+
+1. Introduction
+
+1.1 Purpose
+This repository showcases the requirements for the Smart Parking Platform, developed by $oftware Corp. This project aims to aid drivers pay for, reserve, and locate parking spaces in advance, and in real time, while also providing management tools for parking operators.
+
+1.2 Scope
+In-Scope: Tracking space availability in real time, interactive map display, manage researvations, notifications, digital payment processing, dashboard for operations, and integration of third-party naviation across all platforms. 
+Out-of-Scope: Manufacturing of physical parking gates or sensor installation in-house. Instead of relying on API's and third-party data feeds.
+
+--
+
+2. Overall Description
+- Users:
+  - Vehicle Owners/Drivers
+  - Parking Facility Operators
+  - System Administrators
+- System Environment: Mobile app with cross reference to web browser
+- Constraints: Must sync with third party payment platforms (ex: Stripe/Apple Pay), must have secure authentication (SSL/TLS), and function in a modern cloud infrastructure. 
+- Assumptions: Users have internet/wifi/data to access applications on their mobile device.
+
+3. Functional Requirements
+  1. Registration, login and profile credentials are all authenticated securely
+  2. Users are able to search and view parking spot inventory in real time
+  3. Displays occupancy and provides revenue reports for operators
+  4. System can generate and email weekly analytics reports
+
+4. Non-functional Requirements
+  1. Supports >1000 users at one time. 
+  2. Frequent updates of parking availability within 1 second of booking
+  3. Provides 99.99% uptime. 
+
+
+5. User stories (cases)
+
+  1. User Registration/Login
+    Actor: Driver/Operator
+    Goal: Register for an account and get authenticated to use the platform
+    Precondition: Must have app installed or have searched for it on the web
+    Steps:
+      1. User clicks "Sign up" or "Log in"
+      2. Enters personal information like email, password, and phone number
+      3. System saves information and issues secure session token
+    Postcondition: Profile is authenticated into the system and is directed to main dashboard. 
+
+ 2. Inventory Search in Real-time 
+    Actor: Driver
+    Goal: Find open parking spot near destination
+    Precondition: Logged into platform and has located services enabled
+    Steps:
+      1. User searches up a location in search bar
+      2. System lists all the nearest parking lots 
+      3. Interactive map shows available spots and pricing
+    Postcondition: User views constantly updated data
+
+3. Reserving a parking space
+    Actor: Drvier
+    Goal: Secure a parking spot for a designated time
+    Precondition: User selects an available parking spot
+    Steps:
+      1. The arrival time and parking duration is specified
+      2. User reviews the total cost and fees
+      3. Booking gets confirmed and the payment is processed
+    Postcondition: Parking space is reserved for that user, and a ticket is generated digitally
+
+4. Payment processing for parking
+    Actor: Driver
+    Goal: Secure in-app transaction of correct amount 
+    Precondition: Reservation is active and user has working bank card 
+    Steps:
+      1. User selects their preferred use of payment (Credit/Debit/Apple Pay)
+      2. Is redirected to payment gateway and submits transaction
+      3. Payment confirmation is sent and their record is updated
+    Postcondition: Receipt for the transaction is issued, and parking inventory updates
+
+5. Add new parking inventory
+    Actor: Parking Facility Operator
+    Goal: Add new parking spaces into the system
+    Precondition: Operator has an account and is logged into administrative account
+    Steps:
+      1. Navigate to "manage inventory" tab, and adds a parking lot
+      2. User enters information like location, capacity, and pricing
+      3. User clicks "save" and system updates
+    Postcondition: A new parking lot is available to drivers
+
+6. View sales reports
+    Actor: Parking Facility Operator
+    Goal: See daily parking revenue and statistics
+    Precondition: User is pre-authenticated to view management statistics
+    Steps:
+      1. User clicks  "view reports" tab
+      2. Choose "daily sales" from a specific parking lot
+      3. The system aggregates transaction and provides a report
+    Postcondition: Facility operator can see the financial breakdown and occupancy statistics
+
+7. Generate Analytics Email
+    Actor: System/Operator
+    Goal: Compile data and send weekly performance summaries
+    Precondition: Have email contact(s) saved in system
+    Steps:
+      1. Data like occupancy, total revenue, and peak hours are compiled
+      2. Data is formatted into a easily digestable template
+      3. System sends the email to registered addresses
+    Postcondition: Operators receive a weekly rundoun on statistics in their inbox
+
+8. Checking in/Gate barcode
+    Actor: Driver
+    Goal: Check into reservation by showing generated barcode to garage scanner
+    Precondition: Driver has a ticket from the platform
+    Steps:
+      1. Driver shows their digital ticket on their smartphone
+      2. Scanner reads the barcode/QR code
+      3. Scanner varifies the ticket and promps the gate to open
+    Postcondition: System changes their status to "active", or "in garage"
+
+9. Dynamic Pricing 
+    User story: "As a parking operator, I want to configure an automated pricing rule for peak hours so that my facility can optimize revenue during popular events."
+   Acceptance Criteria:
+    1. User can set a custom start and end time for new pricing
+    2. System automatically applies new pricing to base rates during selected time frame
+    3. Drivers see new pricing before confirming their reservation
+
+10.  Navigation
+    User story: "As a driver, I want to be able to launch navigation to my preffered GPS app directly from my ticket so I am routed to the correct lot."
+  Acceptance Criteria:
+    1. Ticket confirmation screen includes a "Navigate" button, and can direct to any major navigation app (Apple        Maps/Google Maps).
+    2. Tapping the button sends exact information to the selected GPS app
+    3. Navigation app opens instantly with the destination already pre-loaded
+
+11.  Session Extension Alert
+    User story: "When my set parking time is ending, I want to receive push notifications 15 minutes before my session expires so I can add more time if needed, or be able to leave the lot in time."
+  Acceptance Criteria:
+    1. System starts an active countdown for all bookings when ticket is scanned to enter the lot
+    2. Push notifications are sent to alert user exactly 15 minutes before timer runs out
+    3. Tapping the notification leads you to one-tap extension prompt which will then allow you to extend time.
+
+12.  Corporate Receipt Export
+    User story: "For corporate expense reinbursement, I want to be able to download a receipt for past parking sessions." 
+  Acceptance Criteria:
+    1. Parking history is saved and can be browsed inside account profile
+    2. Each log includes a visible "Download PDF Receipt" button
+    3. System generates an easily-readable document including timestamps, addresses, and fees paid (and total)
+
+
+13.  Congestion Heatmap
+    User story: "As a facility operator, I want a live visual indicating lot congestion levels so I can plan for overcrowding risks"
+  Acceptance Criteria:
+    1.Dashboard keeps track of capacity and showcases different colored blocks according to free space
+    2. Blocks change color according to capacity: green: low, yellow: mid, red: max
+    3. Clicking on a block provides further statistics on a lot
+
+
+14.  Offline Connection
+    User story: "In case of unreliable internet connection, I want clear feedback so I can see accurate results and not have any miscalculations during checkout."
+  Acceptance Criteria:
+    1. Application can detect network timeout within two seconds
+    2. System caches pending transactions in local device storage
+    3. App displays notification advising user to check internet connection before retrying
+
+15.  Role-Based Control Management
+    User story: "For work allocation and privacy, I want to assign access roles to newly onboarded staff so that sensitive financial and operational controls remain protected, and they only see what they need to."
+  Acceptance Criteria:
+    1. Admin portal provides a directory of all employees and restrictions allocated
+    2. Admincan change user permissions between Driver, Operator, Finance, and Super Admin roles
+    3. System immediately grants access or restricts access based on role
