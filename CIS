@@ -216,3 +216,9 @@ Out-of-Scope: Manufacturing of physical parking gates or sensor installation in-
       8.2 receipt export in PDF form and download feature
 
 
+Spring 1 Backlog Plan (Trello Board) - Items pulled from backlog
+  1. Driver email and password input form
+  2. password/ credential storage logic
+  3. user registration and account token generation
+  4. secure session management and authentication
+  5. responsive mobile welcome screen layout
