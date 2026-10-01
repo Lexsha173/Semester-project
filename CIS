@@ -18,7 +18,10 @@ Table of Contents
 4. Non-functional Requirements
 5. PART 1 - User stories (cases)
 6. PART 2 - WBS + Gantt Chart
-
+7. Sprint 1
+8. Risk Identification
+9. Risk Register
+10. Communication Plan
 --
 
 1. Introduction
@@ -216,9 +219,55 @@ Out-of-Scope: Manufacturing of physical parking gates or sensor installation in-
       8.2 receipt export in PDF form and download feature
 
 
-Spring 1 Backlog Plan (Trello Board) - Items pulled from backlog
+7. Spring 1 Backlog Plan (Trello Board) - Items pulled from backlog
   1. Driver email and password input form
   2. password/ credential storage logic
   3. user registration and account token generation
   4. secure session management and authentication
   5. responsive mobile welcome screen layout
+
+
+8. Risk Identification
+  Technical Risks
+    1. Third-party API Failure - payment gateway goes offline, blocking core functions
+    2. Real time data latency - GPS and occupancy experience lag and incorrect display
+    3. Cross-platform compatability - mobile app is inconsistent across Android/IOS
+    4. Concurrency - two users simultaneously reserve same spot
+
+  Schedule Risks
+    1. Scope creep - Additional functions requested mid-spring, delaying planned deliverables
+    2. Underestimated integration effort - integration takes longer than estimated
+    3. Dependency chain delay - Backend API not ready when frontend teams begin UI integration
+    4. Unplanned rework - User testing reveals major flaws requiring redesign
+
+  Financial Risks
+    1. Payment gateway - Per-transaction costs exceed projected budget
+    2. Cloud hosting cost overrun - ingestion create higher-than-expected bills
+    3. Unbudgeted third-party licensing - charges for production usage not accounted for
+    4. Currency/exchange rate - operators pay in local currency but service is billed in USD
+
+  People Risks
+    1. Team member unavailability - illness, vacation, or absense during critical milestone
+    2. Knowledge silos - only one developer understands integration 
+    3. Misaligned expectations - product owner and operator have different visions
+    4. Burnout - over-committed story points lead to overtime and reduced quality
+
+9. Risk Register
+1. Slot double-booking
+2. Cross-platform
+3. Scope creep from stakeholders
+4. Third-party API failure
+5. Unplanned UAT rework
+6. Cloud cost overrun
+7. Payment gateway fees at scale
+8. Team member illness during milestone
+9. Knowledge silo on payment integration
+10. Misaligned stakeholder priorities
+
+10. Communication Plan
+  1. Daily meeting (development team, scrum master) - go over what was done, what's next, blockers
+  2. Spring planning (development team, product owner, scrum master) - select and estimate backlog items for upcoming spring
+  3. Review/demo (development team, PO, stakeholders, operators, management) - demo completed, collect feedback
+  4. Retrospective (development team, scrum master) - inspect process, find improvements
+  5. Risk review (Project manager, scrum master, tech lead) - review risk register, update probabilities
+  6. Steering Committee (Project sponsor, Project manager, PO) - budget approval, high-level status, milestone decisions
