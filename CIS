@@ -137,28 +137,73 @@ Out-of-Scope: Manufacturing of physical parking gates or sensor installation in-
       3. Scanner varifies the ticket and promps the gate to open
     Postcondition: System changes their status to "active", or "in garage"
 
-9. Dynamic Pricing 
+9. Booking Modification and Cancellation
+    Actor: Driver
+    Goal: Modify  or cancel existing booking before the start time
+    Precondition: Driver is logged into the app and has a booking ready to be activated
+    Steps:
+      1. Driver opens "Bookings" tab and taps the active reservation
+      2. Driver chooses either to modify or cancel, system checks cancellation policy
+      3. Driver confirms, system recalculates booking or releases the spot back to the public domain
+
+10. Password/Account Recovery
+    Actor: Driver or Operator
+    Goal: Regain access to their account 
+    Precondition: Driver or Operator has a registered email 
+    Steps:
+      1. Driver selects "forgot password" on the main login page
+      2. System sends a recovery link to their email
+      3. Driver sets a new password with that link and logs in
+
+11. Vehicle Profile Management
+    Actor: Driver
+    Goal: Edit details about their vehicle
+    Precondition: Driver is logged into their account
+    Steps:
+      1. Driver opens their profile and clicks "vehicles" and selects "add vehicle" or "edit vehicle"
+      2. Driver enters information like plate, make, model, and EV status. System updates
+      3. System saves new vehicle as default
+
+12. Notification Preferences
+    Actor: Driver
+    Goal: Control which alerts they receive and when they receive them
+    Precondition: Driver is logged in
+    Steps:
+      1. Driver opens the notification tab in their device's settings
+      2. Driver enables SMS/push/email alerts
+      3. Changes are saved in device's settings
+
+13. Waitlist for full lots
+    Actor: Driver
+    Goal: Able to join a waitlist for a full lot
+    Precondition: A lot must be at full capacity, driver must be notified when a spot frees up
+    Steps:
+      1. Driver taps on the full lot and clicks "join waitlist"
+      2. System puts driver on a list that is first-come first-serve
+      3. When a spot opens, the app will notify the driver and give them a set period of time to claim it.
+
+14. Dynamic Pricing 
     User story: "As a parking operator, I want to configure an automated pricing rule for peak hours so that my facility can optimize revenue during popular events."
    Acceptance Criteria:
     1. User can set a custom start and end time for new pricing
     2. System automatically applies new pricing to base rates during selected time frame
     3. Drivers see new pricing before confirming their reservation
 
-10.  Navigation
+15.  Navigation
     User story: "As a driver, I want to be able to launch navigation to my preffered GPS app directly from my ticket so I am routed to the correct lot."
   Acceptance Criteria:
     1. Ticket confirmation screen includes a "Navigate" button, and can direct to any major navigation app (Apple        Maps/Google Maps).
     2. Tapping the button sends exact information to the selected GPS app
     3. Navigation app opens instantly with the destination already pre-loaded
 
-11.  Session Extension Alert
+16.  Session Extension Alert
     User story: "When my set parking time is ending, I want to receive push notifications 15 minutes before my session expires so I can add more time if needed, or be able to leave the lot in time."
   Acceptance Criteria:
     1. System starts an active countdown for all bookings when ticket is scanned to enter the lot
     2. Push notifications are sent to alert user exactly 15 minutes before timer runs out
     3. Tapping the notification leads you to one-tap extension prompt which will then allow you to extend time.
 
-12.  Corporate Receipt Export
+17.  Corporate Receipt Export
     User story: "For corporate expense reinbursement, I want to be able to download a receipt for past parking sessions." 
   Acceptance Criteria:
     1. Parking history is saved and can be browsed inside account profile
@@ -166,7 +211,7 @@ Out-of-Scope: Manufacturing of physical parking gates or sensor installation in-
     3. System generates an easily-readable document including timestamps, addresses, and fees paid (and total)
 
 
-13.  Congestion Heatmap
+18.  Congestion Heatmap
     User story: "As a facility operator, I want a live visual indicating lot congestion levels so I can plan for overcrowding risks"
   Acceptance Criteria:
     1.Dashboard keeps track of capacity and showcases different colored blocks according to free space
@@ -174,21 +219,47 @@ Out-of-Scope: Manufacturing of physical parking gates or sensor installation in-
     3. Clicking on a block provides further statistics on a lot
 
 
-14.  Offline Connection
+19.  Offline Connection
     User story: "In case of unreliable internet connection, I want clear feedback so I can see accurate results and not have any miscalculations during checkout."
   Acceptance Criteria:
     1. Application can detect network timeout within two seconds
     2. System caches pending transactions in local device storage
     3. App displays notification advising user to check internet connection before retrying
 
-15.  Role-Based Control Management
+20.  Role-Based Control Management
     User story: "For work allocation and privacy, I want to assign access roles to newly onboarded staff so that sensitive financial and operational controls remain protected, and they only see what they need to."
   Acceptance Criteria:
     1. Admin portal provides a directory of all employees and restrictions allocated
     2. Admincan change user permissions between Driver, Operator, Finance, and Super Admin roles
     3. System immediately grants access or restricts access based on role
 
-16. 
+21.   Administrative Audit
+    User Story: "As a system admin, I want to view a trail of all sensitive changes so I can maintain security and accountability:
+  Acceptance Criteria:
+    1. System automatically records user info, timestamp and all other role-based or price-based configuration changes
+    2. Audit logs are store in a format that is not editable and retained for minimum 2 years
+    3. Search filters allow admin to isolate actions such as account deletions or pricing overrides
+
+22.  Support Ticket Tracking
+    User story: "As a driver, I want to track support tickets so I can resolve disputes
+  Acceptance critera:
+    1. Submission form allows booking ids and relevant image evidence like payment receipts
+    2. Systems assigns ticket ID and provides confirmation email with a receipt
+    3. Dashboard displays current status (open, in progress, resolved) for submitted tickets
+
+22.  Operator Multi-lot reporting
+    User story: "As a driver, I want to generate reports for multiple facilities so I can compare and analyze performance across my assets"
+  Acceptance Criteria:
+    1. Dashboard allows multi-select function to consolidate data from multiple facilities
+    2. Exported reports group metrics by individual facility within a requested date range
+    3. Data access is restricted to facilities that are assigned to the operator's current account.
+
+23. Lot Waitlist
+    User Story: "As a driver, I want to be able to join a waitlist for a lot that is full so I can potentially get a spot later if there is an opening"
+  Acceptance Criteria:
+    1. Driver has the option to join a waitlist for a lot that is full
+    2. If the spot becomes available, the driver is sent a push notification and given a short amount of time to claim or deny
+    3. Failure to claim means that the waitlist will notify the next person in the queue
 
 6. Work Breakdown Structure (WBS) - Part 2
   1. User Registration
@@ -218,17 +289,21 @@ Out-of-Scope: Manufacturing of physical parking gates or sensor installation in-
       7.2 In-app inbox for receipt and ticket messages
       7.3 Email notification automation (Weekly reports)
   8. Analytics
-      8.1 occupancy visualization (heatmaps or utilization graph)
+      8.1 occupancy visualization (heatmaps or utilization graphs 
+      8.4 weekly email generation for analytics
   9. Financial Reporting
       9.1 Daily sales aggregation
       9.2 receipt export in PDF form and download feature
   10. Admin and Security
       10.1 Role based access control interface
       10.2 Account deletion and data privacy compliance
+  11. DevOps and Infrastructure
+      11.1 Cloud deployment
+      11.2 Backup and disaster recovery plan
 
 
 7. Spring 1 Backlog Plan (Trello Board) - Items pulled from backlog
-  1. Driver email and password input form
+  1. Driver email and password input form 
   2. password/ credential storage logic
   3. user registration and account token generation
   4. secure session management and authentication
@@ -237,27 +312,27 @@ Out-of-Scope: Manufacturing of physical parking gates or sensor installation in-
 
 8. Risk Identification
   Technical Risks
-    1. Third-party API Failure - payment gateway goes offline, blocking core functions
+    1. Third-party API Failure - payment gateway goes offline, or hardware API goes offline, blocking core functions
     2. Real time data latency - GPS and occupancy experience lag and incorrect display
-    3. Cross-platform compatability - mobile app is inconsistent across Android/IOS
-    4. Concurrency - two users simultaneously reserve same spot
+    3. Cross-platform compatability - mobile app is inconsistent across Android/IOS or legacy browsers
+    4. Concurrency - two users simultaneously reserve same spot, race condition in booking engine
 
   Schedule Risks
-    1. Scope creep - Additional functions requested mid-spring, delaying planned deliverables
-    2. Underestimated integration effort - integration takes longer than estimated
-    3. Dependency chain delay - Backend API not ready when frontend teams begin UI integration
-    4. Unplanned rework - User testing reveals major flaws requiring redesign
+    1. Scope creep - Stakeholders request additional functionalities mid-sprint, delaying original deliverables
+    2. Underestimated integration effort - Payment gateway or map integration takes longer than planned
+    3. Dependency chain delay - Backend API not ready when frontend teams begin UI integration, leading to idle time
+    4. Unplanned rework - User testing reveals major UX flaws requiring redesign during final springs
 
   Financial Risks
-    1. Payment gateway - Per-transaction costs exceed projected budget
-    2. Cloud hosting cost overrun - ingestion create higher-than-expected bills
-    3. Unbudgeted third-party licensing - charges for production usage not accounted for
-    4. Currency/exchange rate - operators pay in local currency but service is billed in USD
+    1. Payment gateway - Per-transaction costs exceed projected budget at scale (Stripe/Apple Pay fees)
+    2. Cloud hosting cost overrun - Real-time ingestion create higher-than-expected bills
+    3. Unbudgeted third-party licensing - API production usage charges not accounted for
+    4. Currency/exchange rate - Operators pay in local currency but service is billed in USD
 
   People Risks
-    1. Team member unavailability - illness, vacation, or absense during critical milestone
-    2. Knowledge silos - only one developer understands integration 
-    3. Misaligned expectations - product owner and operator have different visions
+    1. Team member unavailability - Illness, vacation, or absense during critical milestone
+    2. Knowledge silos - only one developer understands integration or database
+    3. Misaligned expectations - product owner and operator have different visions for priority features
     4. Burnout - over-committed story points lead to overtime and reduced quality
 
 9. Risk Register
