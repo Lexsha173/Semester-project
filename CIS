@@ -27,8 +27,7 @@ Table of Contents
 1. Introduction
 
 1.1 Purpose
-This repository showcases the requirements for the Smart Parking Platform, developed by $oftware Corp. This project aims to aid drivers pay for, reserve, and locate parking spaces in advance, and in real time, while also providing management tools for parking operators.
-
+THe SRS defines the complete functional and non-functional requirements for the Smart Parking Platform Program, a unified digital solution that allows drivers to view, reserve, and pay for parking spots, along with a management setup for facility operatots. This document serves as a reference for the developement team, stakeholders, and quality assurance throughout the project.
 1.2 Scope
 In-Scope: Tracking space availability in real time, interactive map display, manage researvations, notifications, digital payment processing, dashboard for operations, and integration of third-party naviation across all platforms. 
 Out-of-Scope: Manufacturing of physical parking gates or sensor installation in-house. Instead of relying on API's and third-party data feeds.
@@ -189,6 +188,8 @@ Out-of-Scope: Manufacturing of physical parking gates or sensor installation in-
     2. Admincan change user permissions between Driver, Operator, Finance, and Super Admin roles
     3. System immediately grants access or restricts access based on role
 
+16. 
+
 6. Work Breakdown Structure (WBS) - Part 2
   1. User Registration
       1.1 Interface for email/password input
@@ -212,11 +213,18 @@ Out-of-Scope: Manufacturing of physical parking gates or sensor installation in-
       6.1 Time slot selection
       6.2 third party payment (Apple pay/Android wallet)
       6.3 Ticket and QR code generation
-  7. Analytics
-      7.1 occupancy visualization (heatmaps or utilization graph)
-  8. Financial Reporting
-      8.1 Daily sales aggregation
-      8.2 receipt export in PDF form and download feature
+  7. Notifications and Alerts
+      7.1 Push notifications system (alert for session expiry, waitlist, discount codes)
+      7.2 In-app inbox for receipt and ticket messages
+      7.3 Email notification automation (Weekly reports)
+  8. Analytics
+      8.1 occupancy visualization (heatmaps or utilization graph)
+  9. Financial Reporting
+      9.1 Daily sales aggregation
+      9.2 receipt export in PDF form and download feature
+  10. Admin and Security
+      10.1 Role based access control interface
+      10.2 Account deletion and data privacy compliance
 
 
 7. Spring 1 Backlog Plan (Trello Board) - Items pulled from backlog
@@ -265,9 +273,9 @@ Out-of-Scope: Manufacturing of physical parking gates or sensor installation in-
 10. Misaligned stakeholder priorities
 
 10. Communication Plan
-  1. Daily meeting (development team, scrum master) - go over what was done, what's next, blockers
-  2. Spring planning (development team, product owner, scrum master) - select and estimate backlog items for upcoming spring
-  3. Review/demo (development team, PO, stakeholders, operators, management) - demo completed, collect feedback
-  4. Retrospective (development team, scrum master) - inspect process, find improvements
-  5. Risk review (Project manager, scrum master, tech lead) - review risk register, update probabilities
-  6. Steering Committee (Project sponsor, Project manager, PO) - budget approval, high-level status, milestone decisions
+  1. Daily meeting 15 mins daily (development team, scrum master) - go over what was done, what's next, blockers
+  2. Spring planning 2 hours per week (development team, product owner, scrum master) - select and estimate backlog items for upcoming spring
+  3. Review/demo 1 hour every week(development team, PO, stakeholders, operators, management) - demo completed, collect feedback
+  4. Retrospective 1 hour every week (development team, scrum master) - inspect process, find improvements
+  5. Risk review 30 min every month(Project manager, scrum master, tech lead) - review risk register, update probabilities
+  6. Steering Committee 1 hour every month (Project sponsor, Project manager, PO) - budget approval, high-level status, milestone decisions
