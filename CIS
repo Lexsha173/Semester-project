@@ -354,3 +354,24 @@ Out-of-Scope: Manufacturing of physical parking gates or sensor installation in-
   4. Retrospective 1 hour every week (development team, scrum master) - inspect process, find improvements
   5. Risk review 30 min every month(Project manager, scrum master, tech lead) - review risk register, update probabilities
   6. Steering Committee 1 hour every month (Project sponsor, Project manager, PO) - budget approval, high-level status, milestone decisions
+
+11. Executive Summary
+  The Smart Parking Platform Project was initiatead to modernize parking infrastructure through a cloud-based application. All the project objectives including booking functionality, real-time availability tracking, and access controls have been met. The platform is now ready for full-scale deployment and maintenance.
+
+12. Achievements/Shortfalls
+  System Functionality: Delivered a platform supporting user authentication, real-time lot occupancy and secure payments.
+  Requirements: Met all milestones by incorporating user stories covering EV charging, accessible parking, and administrative stories. 
+  Process: Successfully maintained project alignment through a structured communication plan, consistent sprint reviews and use of Power-Interest Grid for stakeholder management. 
+
+  Schedule: Initial integration took longer than planned due to complexity of real-time sensor data synchronization.
+  Scope Adjustments: Several feature requests for advanced analytics were not completed. 
+
+13. Lessons Learned
+  1. Early and continuous testing are essential to avoid critical late-stage effects
+  2. Maintinaing consistent status reports and sprint demos kept project participants aligned
+  3. Conducting regular post-mortem analyses allowed the project to change when faced with challenges. 
+
+14. Recommendations for Future Projects
+  1. Maintain a focus on data privacy and security testing, as these remain the most significant risks for user platforms
+  2. Continue monitoring market trends in parking technology, to ensure the platform remains at the top of the competition and compatible with evolving technology
+  3. Keep a lessons-learned repository to ensure future development benefit from insights gathered during the project
